@@ -16,3 +16,16 @@ nav(id="nav")
                 i(class="ic i-search")
             != shokax_inject('rightNav')
 
+script.
+    window.addEventListener('DOMContentLoaded', () => {
+        const url = 'https://fastly.jsdelivr.net/gh/ExecuteMyExecution/live2d-widget@master/dist/autoload.js';
+
+        if (!document.querySelector(`script[src="${url}"]`)) {
+        const script = document.createElement('script');
+        script.src = url;
+        script.async = true;
+        script.onload = () => console.log('Live2D 脚本加载完成');
+        script.onerror = () => console.warn('Live2D 脚本加载失败');
+        document.body.appendChild(script);
+        }
+    });
